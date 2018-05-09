@@ -21,3 +21,10 @@ This package is separated into two major folders:
   - Documentation of several experiments (Data is included)
   - Designprocedure and Lessons learned
 
+## Upcoming modifications:
+- Clean Sourcecode: 
+	- Delete old code fragments
+	- Streamline functions
+- Setup an explanatory Jupyter Notebook that investigates the whole dataprocessing steps
+- Write a complete setup and installation guide for the Raspberry Pi
+
