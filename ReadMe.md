@@ -22,9 +22,15 @@ This package is separated into two major folders:
   - Designprocedure and Lessons learned
 
 ## Upcoming modifications:
+- Enhance ReadMe.md:
+    - work on better description
 - Clean Sourcecode: 
 	- Delete old code fragments
 	- Streamline functions
-- Setup an explanatory Jupyter Notebook that investigates the whole dataprocessing steps
+    - Clean Sensor Driver from unneccessary functions
+- Delete unneccessary data from different operators
+- Setup an explanatory Jupyter Notebook that investigates the whole dataprocessing steps: 
+    - Use better defined Data folder descriptors
+    - Rework Performance measurement GCI.ipynb
 - Write a complete setup and installation guide for the Raspberry Pi
 

@@ -83,5 +83,3 @@ qw, qx, qy, qz - Gyroscope in the Quaternion - Format
 
 The sensor writes its values with 100Hz.
 
-
-Ekin=1/2mv**2
