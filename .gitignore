@@ -1,0 +1,6 @@
+/FlowCharts
+/.ipynb_checkpoints
+*.ipynb_checkpoints
+*__pycache__
+/GesBerry Machine Learning/img
+/GesBerry\ Machine\ Learning/.ipynb_checkpoints/GesBerry - Machine Learning-checkpoint.ipynb

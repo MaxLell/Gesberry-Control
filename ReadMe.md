@@ -32,5 +32,12 @@ This package is separated into two major folders:
 - Setup an explanatory Jupyter Notebook that investigates the whole dataprocessing steps: 
     - Use better defined Data folder descriptors
     - Rework Performance measurement GCI.ipynb
+    - Use Flow Charts
+    - Explain the System from a high- to a low-level perspective
+    - Add Featurenormalization
+    - Test other classifiers
+    - Evidence-based feature design
 - Write a complete setup and installation guide for the Raspberry Pi
 
+## Nice to have:
+- Modify the system so that it runs in ROS
