@@ -110,6 +110,25 @@ def x_y_test(dataset1, dataset2, frame_size = 140):
     clf_acc(clf, X_test, y_test) # ------------------- print Accuracy Score (single dataset split)
     
 def x_test(dataset, frame_size = 140):
+    """(str) -> None
+    
+    performs a (X)-Test and plots evaluations scores: The Machine Learning algorithm is trained and validated on
+    one dataset. This function: 
+    
+    1. catches the data from the given folder and performs a single train-test split on the dataset
+    2. preprocesses the data (X_train, X_test, X)
+    3. trains a Machine Learning classifier
+    4. prints a 10-fold-cross validation score, 
+       prints an accuracy score of the current split, 
+       plots a confusion matrix of the current split.
+       
+    args:
+        * dataset (str)     : name of the dataset's folder
+        * [frame_size (int) : length of the recording window]
+        
+    returns:
+        * None
+    """
     
     ################### 1. Get Data #################
     X_raw,y = import_recorded_datasets(dataset) # ---------- Function loads the data and the labels
