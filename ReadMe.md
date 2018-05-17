@@ -1,5 +1,6 @@
 # Gesberry-Control
-Gesture Control System based on an IMU, a Raspberry Pi and Machine Learning
+Gesture Control System based on an IMU, a Raspberry Pi and Machine Learning. <b\>
+This research was conducted with the help of Univ.-Prof. Dr.-Ing. Thomas Ußmüller (University Innsbruck) and Dr. Gernot Grömer (Austrian Space Forum)
 
 For that the IMU is mounted on the backside of the hand (not important wheather right or left),
 attached to the Raspberry Pi (executes the SensorDriver and the Machine Learning), which then
@@ -41,3 +42,5 @@ This package is separated into two major folders:
 
 ## Nice to have:
 - Modify the system so that it runs in ROS
+
+
