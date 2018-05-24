@@ -47,7 +47,8 @@ def preprocess_raw_data(X_raw, frame_size):
         * debug and check functions:
             - rework signal energy functions
             - rework fft signals
-        + plot feature importance
+        * plot feature importance
+        * place features into python dictionaries
              
     """
     norm = Normalizer()
