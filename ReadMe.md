@@ -1,10 +1,10 @@
 # Gesberry-Control
-Gesture Control System based on an IMU, a Raspberry Pi and Machine Learning. 
+Gesture-recognition-system based on an IMU, a Raspberry Pi and Machine Learning. 
 
 
 For that the IMU is mounted on the backside of the hand (not important wheather right or left),
 attached to the Raspberry Pi (executes the SensorDriver and the Machine Learning), which then
-predicts the gestures. Nevertheless the system needs to be trained with at least 10 gestures. 
+predicts the gestures.The system needs to be trained with at least 10 gestures. 
 When a trained operator uses the system the system acchieves a 10 fold cross validation score of
 97%
 
@@ -41,7 +41,7 @@ This package is separated into two major folders:
 - Write a complete setup and installation guide for the Raspberry Pi
 
 ## Nice to have:
-- Modify the system so that it runs in ROS
+- Modify the system so that it runs in ROS - Improves translation speed
 
 This research was conducted with the help of Univ.-Prof. Dr.-Ing. Thomas Ußmüller (University Innsbruck) and Dr. Gernot Grömer (Austrian Space Forum)
 

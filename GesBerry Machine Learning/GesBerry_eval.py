@@ -62,7 +62,7 @@ def clf_acc(clf, X_test, y_test):
     
     y_pred = clf.predict(X_test)
     acc = accuracy_score(y_test, y_pred)
-    print ('Accuracy of the current Train_test-split --------- : ' , acc)
+    print ('Accuracy of the current Train_test-split --------- : %0.2f' % acc)
 
 def cross_val(clf, X, y):
     """(clf, np.array, np.array) -> None
@@ -77,7 +77,7 @@ def cross_val(clf, X, y):
     """
     
     scores = cross_val_score(clf, X, y, cv = 10)
-    print(clf.__class__.__name__, '--->',"Crossval score Accuracy:  %0.2f (+/- %0.2f)" % (scores.mean(), scores.std() * 2))
+    print(clf.__class__.__name__, '--->',"Crossval score Accuracy: %0.2f (+/- %0.2f)" % (scores.mean(), scores.std() * 2))
     
 def x_y_test(dataset1, dataset2, frame_size = 140):
     """(str, str) -> None

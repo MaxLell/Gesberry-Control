@@ -31,8 +31,8 @@ sys.path.append(os.getcwd() + '/' + 'functions')
 import time
 import timeit
 
-from preprocessing import create_features_fixed
-from sensor import get_sensor_data, clear_pipe, calibrate_sensor, init_IMU, init_fifo
+from GesBerry_prep import preprocess_raw_data
+from GesBerry_get_data import get_sensor_data, clear_pipe, calibrate_sensor, init_IMU, init_fifo
 
 from sklearn.externals import joblib
 
@@ -79,7 +79,7 @@ print('sensor set up - read from pipe')
 
 while True:
     # await trigger signal - for the current scenario: press Enter on the keyboard
-    wait_for_trigger('press »Enter« to recognize gesture')
+    wait_for_trigger('press »Enter« to recognize gesture') # Trigger!
     
     # clear pipe
     clear_pipe(pipe_path)
@@ -88,10 +88,10 @@ while True:
     x_raw = get_sensor_data(fifo, frame_size)
     
     # create features from raw values
-    x = create_features_fixed(x_raw, frame_size)
+    x = preprocess_raw_data(x_raw, frame_size)
     
     # predict which gesture is represented in x_raw
-    y_pred = clf_multi.predict(x)
+    y_pred = clf.predict(x)
     
     # output the prediction
     print('Prediction: --->',y_pred,'\n'+'--------------------------------------')

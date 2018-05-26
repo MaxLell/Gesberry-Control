@@ -30,7 +30,7 @@ import time
 import numpy as np
 import subprocess
 
-########################## functions #########################
+########################## sensor-functions #########################
 def get_sensor_data(fifo, frame_size): #tested
     '''(fifo, int) --> np.array
     returns the raw data extracted from a fifo - pipe in form of a matrix.
@@ -38,6 +38,14 @@ def get_sensor_data(fifo, frame_size): #tested
     example:
     returns a vector with the shape of (1,7 *140) containing the linear accelerations of x,y,z
     and the quarternions qs,qx,qy,qz
+    
+    args:
+        * fifo (fifo-object): A pipe containing the sensor readings
+        * frame_size (int)  : Size of the time window of the recording
+        
+    returns:
+        * raw_data (np.array): A Numpy.Array containing the sensor readings in a float-number
+                               representation
     '''
 
     format = 'f' * 7 * (frame_size)
@@ -46,17 +54,22 @@ def get_sensor_data(fifo, frame_size): #tested
     raw_data = np.asarray(raw_data)
     return raw_data
 
-def clear_pipe(path):
+def clear_pipe(pipe_path):
     '''(str) --> None
     clears the data from the data buffer, by reading and dumping it until,
-    it needs to wait for new data input (--> System now works with current
-    data)
+    it needs to wait for new data input
+    
+    args:
+        * pipe_path (str): String containing the path to the pipe
+    
+    returns:
+        * None
     '''
     form = 'f' * 7 * 1 # c.a. time = 0.00990 ms
     time = 0
     while time < 0.008:
         start_time = timeit.default_timer()
-        with open(path, 'rb') as fifo:
+        with open(pipe_path, 'rb') as fifo:
             dump = fifo.read(struct.calcsize(form))
         end_time = timeit.default_timer()
         time = end_time - start_time
@@ -65,6 +78,12 @@ def calibrate_sensor(pipe_path):
     '''(str) --> None
     it takes 20 seconds to calibrate the sensor at the beginning. 
     This step is required to initialize the sensor
+    
+    args:
+        * pipe_path (str): String containing the path to the pipe
+    
+    returns:
+        * None
     '''
     
     print('calibrating sensor - please wait for 20 Seconds', '\n'+'---------------------')
@@ -78,6 +97,12 @@ def init_IMU(driver_path):
     '''
     (str) -> None
     This function starts the sensor driver as a subprocess
+    
+    args:
+        * driver_path (str): String of the path to the sensor-driver.cpp file
+    
+    returns:
+        * None
     '''
     
     # start c++ sensor driver
@@ -88,11 +113,40 @@ def init_fifo(pipe_path):
     '''
     (str) --> fifo
     opens and returns the fifo
+    
+    args:
+        * pipe_path (str): String of the path to the pipe
+        
+    returns:
+        * fifo (fifo-object)
     '''
     
     fifo = open(pipe_path, "rb")
     print('read from pipe')
     return fifo
+
+########################## recorded-datasets-functions #########################
+
+def import_recorded_datasets(folder_name):
+    """(str) --> np.array, np.array
+    
+    Reads in the *.csv files from the dataset at a given path-location and returns their values as
+    numpy arrays.
+    
+    args:
+        * path (str): path to folder
+    
+    returns:
+        * X_raw (np.array): raw unprocessed dataset - matrix
+        * y (np.array)    : label vector    
+    """
+    
+    path = os.getcwd() + '/data/' + folder_name
+    
+    X_raw = pd.read_csv(path + '/' + 'raw_data.csv', index_col=0).values
+    y     = pd.read_csv(path + '/' + 'label.csv'   , header=None).values.ravel()
+    
+    return X_raw,y
     
     
     

@@ -30,7 +30,7 @@ import re
 import os
 import sys
 
-from sensor import get_sensor_data, clear_pipe, calibrate_sensor, init_IMU, init_fifo
+from GesBerry_get_data import get_sensor_data, clear_pipe, calibrate_sensor, init_IMU, init_fifo
 
 ################# functions ################
 
@@ -39,8 +39,15 @@ def get_labels_from_input(label): # tested
     returns a list of strings, which represent the gesture's names
 
     example:
-    >>>> get_labels_from_input('swipe_right, swipe_left'):
+    >>> get_labels_from_input('swipe_right, swipe_left'):
     ['swipe_right', 'swipe_left']
+    
+    args:
+        * label (str): A string containing all labels, separated by a comma
+    
+    returns:
+        * list[str]: A list of strings, which contains all labels from the input string,
+                     but now as separate strings in a list.
     '''
 
     return re.findall(r'\w+', label)
@@ -63,10 +70,18 @@ def record_labelled_dataset(frame_size, driver_path, pipe_path):
     (int, str, str) --> str
 
     records a new labelled dataset and returns the folder path to where the dataset was created.
-    X(IMU data) is stored in raw_data.csv and y (label) is stored in label.csv
+    X (IMU data) is stored in raw_data.csv and y (label) is stored in label.csv
+    
+    args:
+        * frame_size  (int): Time duration of the recording window, represented by an integer
+        * driver_path (str): String containing the path to the sensor-driver.cpp file
+        * pipe_path   (str): String containing the path to the pipe file
+        
+    returns:
+        * data_path   (str): String containing the path to the data folder
     '''
-    # enter AA's name
-    identifier = input("pls enter AA's name: ") + time.strftime('%d%m%y') # tested
+    # enter User's name
+    identifier = input("pls enter User's name: ") + time.strftime('%d%m%y') # tested
     print('---------------------')
 
     # start sensor

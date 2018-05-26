@@ -28,9 +28,10 @@ import os
 import sys
 sys.path.append(os.getcwd() + '/' + 'functions')
 
-from record_data import record_labelled_dataset
-from preprocessing import preprocess_raw_dataset
-from train_clf import train_clf
+from GesBerry_record_data import record_labelled_dataset
+from GesBerry_prep import preprocess_raw_dataset
+
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.externals import joblib
 
 
@@ -49,19 +50,23 @@ y     = pd.read_csv(path + '/' + 'label.csv'   , header = None).values.ravel()
 print('-'*30)
 print('training classifier, please wait. This might take a couple of minutes.')
 
-# preprocess raw data
+# 3. preprocess raw data
 X = preprocess_raw_dataset(X_raw, frame_size)
 print('preprocessing completed')
 
-# train classifier
+# 4. train classifier
 print('learning .....')
-clf_multi = train_clf(X, y)
 
-# export classifier
-joblib.dump(clf_multi, path + '/' + 'Multi_clf' + '.pkl')
+clf = RandomForestClassifier(bootstrap = True, max_depth = 30, max_features = 4, n_estimators = 250)
+clf.fit(X, y)
 
-# export path
-with open (os.getcwd() + '/data/' + "clf_path.txt", "w") as path_file:
+# 5. export classifier
+joblib.dump(clf, path + '/' + 'Multi_clf' + '.pkl')
+
+# 6. export path
+# The Path is written into a *.txt file. This file is loaded by GCI_classify. And the Classification-script
+# loads the right path to the location of the exported decision boundary file.
+with open (os.getcwd() + '/data/' + "clf_path.txt", "w") as path_file: 
     path_file.write(path)
 
 print('-'*30)
