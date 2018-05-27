@@ -147,12 +147,7 @@ def import_recorded_datasets(folder_name):
     y     = pd.read_csv(path + '/' + 'label.csv'   , header=None).values.ravel()
     
     return X_raw,y
-    
-    
-    
-    
-    
-    
+
     
     
     
