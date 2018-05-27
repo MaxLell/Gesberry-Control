@@ -72,7 +72,7 @@ joblib.dump(clf, current_path + '/data/' + folder_name + '/Multi_clf.pkl')
 # The Path is written into a *.txt file. This file is loaded by GCI_classify. And the Classification-script
 # loads the right path to the location of the exported decision boundary file.
 with open (current_path + '/data/' + "clf_path.txt", "w") as path_file: 
-    path_file.write(path)
+    path_file.write(folder_name + '/Multi_clf.pkl')
 
 print('-'*30)
 print('export knowledge complete - midi-chlorians levels rising; may the force be with you young Padawan')

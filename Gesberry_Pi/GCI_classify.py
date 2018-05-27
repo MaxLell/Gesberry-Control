@@ -48,7 +48,7 @@ frame_size  = 140
 vec_size = frame_size*7
 
 # load classifier
-clf  = joblib.load(path + '/' + 'Multi_clf' + '.pkl')
+clf  = joblib.load(os.getcwd() + '/data/' + path)
 print('successfully loaded classifier')
 
 ########################## functions ########################
