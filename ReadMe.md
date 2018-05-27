@@ -22,6 +22,24 @@ This package is separated into two major folders:
   - Documentation of several experiments (Data is included)
   - Designprocedure and Lessons learned
 
+## Installation guide GesBerry-Pi
+
+1. Download and install Raspian (see https://www.raspberrypi.org/downloads/)
+2. Activate SSH on the Raspberry Pi (see https://www.raspberrypi.org/documentation/remote-access/ssh/)
+3. Change RaspberryPi default password to a password of your choice. 
+4. open Terminal on the Raspberry Pi and enter the following lines (this updates the Raspberry Pi):
+	1. sudo apt-get update
+	2. sudo apt-get upgrade
+5. Install python packages (needed for script-execution) - enter in the RaspBerry Pi Terminal:
+	1. Install SciPy: sudo apt-get install python3-scipy
+	2. Install Scikit-Learn: pip3 install -U scikit-learn
+	3. Install Pandas: pip3 install pandas
+	4. Install libgtkmm-3.0-dev: sudo apt-get install libgtkmm-3.0-dev
+6. Download the current GesBerry_Pi Code: Open Terminal on the Raspberry Pi and enter: git clone https://github.com/MaxLell/Gesberry-Control.git.
+   The Code is downloaded to /home/pi directory
+7. Navigate to the Raspberry-Pi-driver folder by entering cd /home/pi/Gesberry-Control/Gesberry_Pi/Raspberry_pi_IMU6050_driver
+8. enter in Raspberry Pi Terminal: make -j4 (compiles the IMU-sensor driver)
+
 ## Upcoming modifications:
 - Enhance ReadMe.md:
     - work on better description

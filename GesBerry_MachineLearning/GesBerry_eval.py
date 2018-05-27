@@ -1,6 +1,28 @@
+####################### Copyright ##########################
+##The gesture-control-interface (GCI) device library code is placed under the MIT license
+##Copyright (c) 2017 Maximilian Lell (maximilian.lell@gmail.com)
+##
+##Permission is hereby granted, free of charge, to any person obtaining a copy
+##of this software and associated documentation files (the "Software"), to deal
+##in the Software without restriction, including without limitation the rights
+##to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+##copies of the Software, and to permit persons to whom the Software is
+##furnished to do so, subject to the following conditions:
+##
+##The above copyright notice and this permission notice shall be included in
+##all copies or substantial portions of the Software.
+##
+##THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+##IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+##FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+##AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+##LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+##OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+##THE SOFTWARE.
+
 # imports
-import numpy as np # -------------------------------------- vers. numpy:  1.14.0
-import pandas as pd # ------------------------------------- vers. pandas: 0.22.0
+import numpy as np # --------------------------------------- vers. numpy:  1.14.0
+import pandas as pd # -------------------------------------- vers. pandas: 0.22.0
 import sys, os
 
 import matplotlib.pyplot as plt # -------------------------- vers. matplotlib: 2.1.2
@@ -8,9 +30,9 @@ import seaborn as sn # ------------------------------------- vers. seaborn: 0.8.
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import cross_val_score
-from sklearn.model_selection import train_test_split # ---- vers. scikit-learn: 0.19.1
+from sklearn.model_selection import train_test_split # ----- vers. scikit-learn: 0.19.1
 
-from GesBerry_get_data  import import_recorded_datasets
+from GesBerry_get_data  import get_recorded_data
 from GesBerry_prep      import preprocess_raw_data
 
 from sklearn.ensemble import RandomForestClassifier
@@ -94,8 +116,8 @@ def x_y_test(dataset1, dataset2, frame_size = 140):
     """
 
     # 1. Get Data
-    X_raw_train, y_train  = import_recorded_datasets(dataset1) # ------ load training dataset and training labels
-    X_raw_test,  y_test   = import_recorded_datasets(dataset2) # ------ load test dataset and test labels
+    X_raw_train, y_train  = get_recorded_data(dataset1) # ------ load training dataset and training labels
+    X_raw_test,  y_test   = get_recorded_data(dataset2) # ------ load test dataset and test labels
 
     # 2. Preprocess Data
     X_train = preprocess_raw_data(X_raw_train, frame_size) # ---------- preprocess raw dataset
@@ -131,7 +153,7 @@ def x_test(dataset, frame_size = 140):
     """
     
     ################### 1. Get Data #################
-    X_raw,y = import_recorded_datasets(dataset) # ---------- Function loads the data and the labels
+    X_raw,y = get_recorded_data(dataset) # ---------- Function loads the data and the labels
     X_train_raw, X_val_raw, y_train, y_val = train_test_split(X_raw, y, test_size=0.3) # train-val-split
 
     ################## 2. Preprocess Data ###########

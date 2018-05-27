@@ -42,12 +42,13 @@ with open (os.getcwd() + '/data/' + 'clf_path.txt', "r") as pathfile:
 
 #path = path[:-1]
 
-driver_path = os.getcwd() + '/' + 'functions/raspberry_pi_IMU6050_driver/demo_dmp'
+driver_path = os.getcwd() + '/' + 'Raspberry_Pi_IMU6050_driver/demo_dmp'
 pipe_path   = "/tmp/gescon"
 frame_size  = 140
+vec_size = frame_size*7
 
 # load classifier
-clf_multi  = joblib.load(path + '/' + 'Multi_clf' + '.pkl')
+clf  = joblib.load(path + '/' + 'Multi_clf' + '.pkl')
 print('successfully loaded classifier')
 
 ########################## functions ########################
@@ -86,6 +87,7 @@ while True:
     
     # get new sensor values
     x_raw = get_sensor_data(fifo, frame_size)
+    x_raw = x_raw.reshape(1, vec_size)
     
     # create features from raw values
     x = preprocess_raw_data(x_raw, frame_size)

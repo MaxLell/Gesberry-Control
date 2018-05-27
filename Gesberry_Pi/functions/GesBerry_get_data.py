@@ -28,6 +28,7 @@ import timeit
 import time
 
 import numpy as np
+import pandas as pd
 import subprocess
 
 ########################## sensor-functions #########################
@@ -127,7 +128,7 @@ def init_fifo(pipe_path):
 
 ########################## recorded-datasets-functions #########################
 
-def import_recorded_datasets(folder_name):
+def get_recorded_data(folder_name):
     """(str) --> np.array, np.array
     
     Reads in the *.csv files from the dataset at a given path-location and returns their values as
