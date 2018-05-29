@@ -19,9 +19,6 @@ This package is separated into two folders:
 
 2. The __GesBerry_MachineLearning Package__: This package contains an executable jupyter notebook, which contains several system experiments. On the one hand these show the current systems capabilities in terms of detection accuracy (also for future systems) and on the other hand it provides valueable information to maximize the detection accuracy. Here the impact of the human operator is shown.
 
-Installation guide
-Prerequesite is that the sensor is connected to the Raspberry Pi's GPIO pins (see I2C Connectors Raspberry Pi) 
-
 
 ## Dependencies and Installation Guides
 
@@ -31,10 +28,10 @@ Prerequesite is that the sensor is connected to the Raspberry Pi's GPIO pins (se
 * pandas
 * Atlas
 
-The installation guides for the concerning packages are included in the folders.
+The installation guides for the concerning packages are included in the folders. Besides the software implentation also a circuit diagram for the hardware development is provided.
 
 Acknowledgements
 ==========
-
+The whole project was developed in a Masterthesis of Maximilian Lell at the University of Innsbruck (see MasterThesis)
 This research was conducted with the help of Univ.-Prof. Dr.-Ing. Thomas Ußmüller (University Innsbruck) and Dr. Gernot Grömer (Austrian Space Forum). 
 The sensor driver for the Raspberry Pi was developped by Jeff Rowberg https://github.com/jrowberg/i2cdevlib and Richard Ghirst https://github.com/richardghirst/PiBits/tree/master/MPU6050-Pi-Demo. The sensor driver is modified to write the sensor's output into a fifo-pipe.
