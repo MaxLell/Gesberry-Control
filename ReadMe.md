@@ -17,7 +17,7 @@ First the software needs to learn the gesture movements. To do so a human operat
 This package is separated into two folders: 
 1. The __GesBerry_Pi Package__: This package contains the complete sourcecode to run the Gesture recognition software on a Raspberry Pi. Furthermore a complete installation guide is provided and a circuit diagram is included on how to physically set up the system.
 
-2. The __GesBerry_MachineLearning Package__: This package contains an executable jupyter notebook, which contains several system experiments. On the one hand these show the current systems capabilities in terms of detection accuracy (also for future systems) and on the other hand it provides valueable information to maximize the detection accuracy. Here the impact of the human operator is shown.
+2. The __GesBerry_MachineLearning Package__: This package contains executable jupyter notebooks, which contain several system experiments. `GesBerry_Machine_Learning.ipynb` shows the current system capabilities in terms of detection accuracy (also for future systems) and on the other hand it provides valueable information to maximize the detection accuracy. Here the impact of the human operator is shown. The `GesBerry_CheckGestures.ipynb` script can be used for testing own gesture sets.
 
 
 ## Dependencies and Installation Guides

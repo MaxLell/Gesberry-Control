@@ -11,18 +11,18 @@ The __Usage__ of the sub-package is straight-forwards:
 Open the Jupyter Notebook IDE and run the scripts.
 
 ## Installation Guide Option 1 (Raspberry Pi):
-`sudo su -` </b>
-`apt-get update` </b>
-`apt-get upgrade` </b>
-`pip3 install --upgrade pip` </b>
-`apt-get install python3-matplotlib` </b>
-`apt-get install python3-scipy` </b>
-`apt-get install libatlas-base-dev` </b>
+1. `sudo su -` </b>
+2. `apt-get update` </b>
+3. `apt-get upgrade` </b>
+4. `pip3 install --upgrade pip` </b>
+5. `apt-get install python3-matplotlib` </b>
+6. `apt-get install python3-scipy` </b>
+7. `apt-get install libatlas-base-dev` </b>
 
-`reboot` </b>
-`sudo pip3 install seaborn, pandas, jupyter` </b>
-`sudo pip3 install -U scikit-learn` </b>
-`sudo apt-get clean` </b>
+8. `reboot` </b>
+9. `sudo pip3 install seaborn, pandas, jupyter` </b>
+10. `sudo pip3 install -U scikit-learn` </b>
+11. `sudo apt-get clean` </b>
 
 ## Installation guide Option 2 (external Machine: Windows, Mac, Linux):
 Install Anaconda (https://anaconda.org/). This includes all the required scripts by default or follow the procedure of Option 1.
