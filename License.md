@@ -1,5 +1,6 @@
 ####################### Copyright ##########################
-The gesture-control-interface (GCI) device library code is placed under the MIT license
+
+The GesBerry-Control device library code is placed under the MIT license
 Copyright (c) 2018 Maximilian Lell (maximilian.lell@gmail.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

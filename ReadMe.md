@@ -32,6 +32,6 @@ The installation guides for the concerning packages are included in the folders.
 
 Acknowledgements
 ==========
-The whole project was developed in a Masterthesis of Maximilian Lell at the University of Innsbruck (see MasterThesis)
-This research was conducted with the help of Univ.-Prof. Dr.-Ing. Thomas Ußmüller (University Innsbruck) and Dr. Gernot Grömer (Austrian Space Forum). 
+The whole project was developed in a Masterthesis of Maximilian Lell at the University of Innsbruck.
+This research was conducted with the help of Univ.-Prof. Dr.-Ing. Thomas Ussmueller (University Innsbruck) and Dr. Gernot Groemer (Austrian Space Forum). 
 The sensor driver for the Raspberry Pi was developped by Jeff Rowberg https://github.com/jrowberg/i2cdevlib and Richard Ghirst https://github.com/richardghirst/PiBits/tree/master/MPU6050-Pi-Demo. The sensor driver is modified to write the sensor's output into a fifo-pipe.
