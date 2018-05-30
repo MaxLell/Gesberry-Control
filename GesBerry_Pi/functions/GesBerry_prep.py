@@ -34,8 +34,8 @@ from sklearn.preprocessing import Normalizer
 def preprocess_raw_data(X_raw, frame_size):
     """(np.array, int) --> np.array
     
-    Function that transforms the raw time progression signal into feature vectors. Afterwards
-    the feature vector is normalized.
+    Function that transforms the raw time progression signal into
+    feature vectors. Afterwards the feature vector is normalized.
     (Dimensions of matrizes depend from the frame_size - the dimensions
     that are listed here refer to a frame_size of 140! Same comes for all
     listed subfunctions)
@@ -44,42 +44,23 @@ def preprocess_raw_data(X_raw, frame_size):
     m = 980
     
     args:
-        * X_raw (np.array[n,m]): raw data - can be a single vector or a matrix
+        * X_raw (np.array[n,m]): raw data - can be a single vector or a
+          matrix
         * frame_size (int): recording window size
     
     Returns:
         * Preprocessed dataset (X) - vector or matrix
-    
-    TODO:
-        * Test efficiency of features to streamline code
-            - Only FFT-Features
-            - Only Tapia features
-            - Selected Tapia Features
-        * standarize the choice of variables in functions: 
-          create_feature_vector: y = x_raw: confusing description.
-        * rework comments of helper functions
-        * optimize Code for matrix process: Currently many methods perform the same task
-          of splitting up the matrix into a feature vector --> streamline code
-        * put features in a dictinary instead of a list - better quality management of 
-          the features possible
-          e.g.: 
-          axis = [ax,ay,az,qs,qx,qy,qz]
-          for in range(0,len(axis)):
-              feature_vector['acl_DCMean_'+axis[i]] = np.mean(y_lowpass_filter[:,i])
-        * debug and check functions:
-            - rework signal energy functions
-            - rework fft signals
-        * plot feature importance
-        * place features into python dictionaries
+
              
     """
     norm = Normalizer()
     X = np.array([])
     for row in range(X_raw.shape[0]): 
         
-        # in case only one vector (X_raw) is provided: Output normalized featurevector
-        # in case X_raw represents a matrix: Split matrix up into vectors, calculate feature
-        # vectors, stack them and output the transformed dataset X
+        # in case only one vector (X_raw) is provided: Output normalized
+        # featurevector. In case X_raw represents a matrix: Split matrix
+        # up into vectors, calculate feature vectors, stack them and
+        # output the transformed dataset X
         
         # split up matrix into vector and process single vectors
         x_raw = X_raw[row, :]
@@ -94,9 +75,10 @@ def preprocess_raw_data(X_raw, frame_size):
         if X.shape[0] == 0:
             X = feature_vector
         
-        # in case a Matrix (X_raw) is provided: Stack to matrix and output matrix
+        # in case a Matrix (X_raw) is provided: Stack to matrix and output
+        # matrix
         else:
-            X = np.concatenate((X,feature_vector), axis=0) # --------- 
+            X = np.concatenate((X,feature_vector), axis=0) 
 
     return X
 
@@ -110,7 +92,8 @@ def create_feature_vector(y, frame_size, f_abt = 100):
     args:
         * y (np.array[]):      raw signal
         * frame_size (int):    duration of recording window in 100ms 
-                               (e.g.: frame_size = 140 -> record time window: 1.4 sec)
+                               (e.g.: frame_size = 140 -> record time
+                               window: 1.4 sec)
     
     returns:
         * features (np.array[1,x]): feature vector
