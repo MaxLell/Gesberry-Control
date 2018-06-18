@@ -3,10 +3,16 @@
 ## Overview
 
 
-This package contains Gesture-recognition-system based on an IMU6050 (Inertial Measurement Unit), a Raspberry Pi and Machine Learning. The following graph shows the system setup:
+This package contains Gesture-recognition-system based on an IMU6050 (Inertial Measurement Unit), a Raspberry Pi and Machine Learning. The trained system works in the following way:
+1. press trigger button
+2. sensor records its data output as a time-progression signal for a fixed amount of time and transfers it to the Raspberry Pi
+3. The Raspberry Pi interprets the signal via Machine Learning and puts out its estimation.
+
+
+The following graph shows the system setup:
 <img src="img/GesBerry_Pi.png">
 
-The sensor is mounted on the backside of the middlefinger (see figure) and records a gesture after a trigger-button-press. The major processing unit is the Raspberry Pi. It executes:
+The sensor is mounted on the backside of the middlefinger (see figure). The major processing unit is the Raspberry Pi. It executes:
 - sensor driver
 - data-processing
 - Machine-Learning (learning from data and classifying new samples)
@@ -22,13 +28,7 @@ This package is separated into two folders:
 
 ## Dependencies and Installation Guides
 
-* numpy
-* scipy
-* scikit-learn
-* pandas
-* Atlas
-
-The installation guides for the concerning packages are included in the folders. Besides the software implentation also a circuit diagram for the hardware development is provided.
+The installation guides and the dependencies for the concerning packages are included in the folders. Besides the software implentation also a circuit diagram for the hardware development is provided.
 
 Acknowledgements
 ==========
