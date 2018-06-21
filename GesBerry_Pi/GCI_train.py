@@ -46,8 +46,6 @@ pipe_path   = "/tmp/gescon"
 # 1. record labelled dataset and get path to the raw_data folder.
 folder_name = record_labelled_dataset(frame_size, driver_path, pipe_path)
 
-#folder_name = ... 
-
 # 2. load data (X_raw) and labels (y)
 X_raw, y = get_recorded_data(folder_name)
 print('-'*30)

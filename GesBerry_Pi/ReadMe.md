@@ -4,22 +4,25 @@ Prerequesite is that the sensor is connected to the Raspberry Pi's GPIO pins. Th
 
 ## Installation guide for the Raspberry Pi (GesBerry_Pi folder)
 1. Download and install Raspian (see https://www.raspberrypi.org/downloads/)
-2. Activate SSH on the Raspberry Pi (see https://www.raspberrypi.org/documentation/remote-access/ssh/)
-3. Change RaspberryPi default password to a password of your choice. 
-4. open Terminal on the Raspberry Pi and enter the following lines (this updates the Raspberry Pi):
+2. Connect Mouse and Keyboard to the Raspberry Pi and start the Raspberry Pi Config Menu (https://www.raspberrypi.org/documentation/configuration/raspi-config.md)
+3. Enter in sub menu "Interfacing Options" and enable the SSH and the I2C 
+4. Change RaspberryPi default password to a password of your choice. 
+5. open Terminal on the Raspberry Pi and enter the following lines (this updates the Raspberry Pi):
 	1. `sudo apt-get update`
 	2. `sudo apt-get upgrade`
-5. Install python packages (needed for script-execution) - enter in the RaspBerry Pi Terminal:
+6. Install python packages (needed for script-execution) - enter in the RaspBerry Pi Terminal:
 	1. Install Numpy: `pip3 install numpy`
 	2. Install Atlas: `sudo apt-get install libatlas-base-dev`
 	2. Install SciPy: `sudo apt-get install python3-scipy`
 	3. Install Scikit-Learn: `pip3 install -U scikit-learn`
 	4. Install Pandas: `pip3 install pandas`
 	5. Install libgtkmm-3.0-dev: `sudo apt-get install libgtkmm-3.0-dev`
-6. Download the current GesBerry_Pi Code: Open Terminal on the Raspberry Pi and enter:
+7. Download the current GesBerry_Pi Code: Open Terminal on the Raspberry Pi and enter:
 `git clone https://github.com/MaxLell/Gesberry-Control.git` The Code is downloaded to /home/pi directory
-7. Navigate to the Raspberry-Pi-driver folder by entering `cd /home/pi/Gesberry-Control/Gesberry_Pi/Raspberry_pi_IMU6050_driver`
-8. enter in Raspberry Pi Terminal: `make -j4` (compiles the IMU-sensor driver)
+8. Navigate to the Raspberry-Pi-driver folder by entering `cd /home/pi/Gesberry-Control/GesBerry_Pi/Raspberry_pi_IMU6050_driver`
+9. enter in Raspberry Pi Terminal: `make -j4` (compiles the IMU-sensor driver)
+10. enter in Raspberry Pi Terminal: `pinout` (displays the GPIO Pin Layout)
+11. Connect IMU6050 to the concerning Pins
 
 ## Usage
 First 10 samples/gesture must be recorded. This dataset is used to train the MachineLearning classifier. Afterwards new samples can be detected.
