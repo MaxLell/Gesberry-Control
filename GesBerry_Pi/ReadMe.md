@@ -25,7 +25,10 @@ Prerequesite is that the sensor is connected to the Raspberry Pi's GPIO pins. Th
 11. Connect IMU6050 to the concerning Pins
 
 ## Usage
-First 10 samples/gesture must be recorded. This dataset is used to train the MachineLearning classifier. Afterwards new samples can be detected.
+First 10 samples/gesture must be recorded. This dataset is used to train the MachineLearning classifier. Afterwards new samples can be detected. The following Flowchart describes the processes:
+
+<img src="img/flowchart ML.png">
+
 
 1. __learn gestures__: open Terminal, navigate to the `/GesBerry_Pi` folder and start the training procedure for the Gesture recognition system by entering `python3 GCI_train.py`. The script guides through the process. You can either create your own new gestures or you can use the ones that are provided (see `/GesBerry_MachineLearning/img/gestureTable_1.png`). The GesBerry_MachineLearning folder contains valuable information about the gesture recording process and how to achieve high accuracies.
 
