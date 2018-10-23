@@ -28,7 +28,16 @@ This package is separated into two folders:
 
 ## Dependencies and Installation Guides
 
-The installation guides and the dependencies for the concerning packages are included in the folders. Besides the software implentation also a circuit diagram for the hardware development is provided.
+- Python 3
+- Numpy
+- Scipy
+- Scikit-learn
+- Pandas
+- matplotlib
+- Jupyter Notebook
+- Seaborn
+
+Both folders contain an instruction manual of how to install the package on the concerning platform. Besides the software also a circuit diagram is provided for the hardware installation.
 
 Acknowledgements
 ==========
